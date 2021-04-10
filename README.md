@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/Sawyer13/Hidegglypuff/"><img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/32/1470749135-pokemon-gif-5.gif" style="border-radius: 50%;"></a>
+  <a href="https://github.com/Sawyer13/Hidegglypuff/"><img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/32/1470749135-pokemon-gif-5.gif" style="border-radius: 50px;"></a>
   <br>
   Hidegglypuff
   <br>
