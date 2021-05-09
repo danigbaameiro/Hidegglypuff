@@ -39,6 +39,7 @@ Finally, the audio steganography techniques used in our tool are the follownig:
 * [Sawyer13](https://github.com/Sawyer13/)
 * [Montsedom96](https://github.com/Montsedom96/)
 * [H13R0S](https://github.com/H13R0S/)
+* [mbocos98](https://github.com/mbocos98)
 
 ## IMPORTANT
 This steganography tool was created for purely educational purposes. The use of this tool for bad purposes is forbidden.
