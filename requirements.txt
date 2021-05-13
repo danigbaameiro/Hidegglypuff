@@ -1,0 +1,14 @@
+cryptography==3.4.7
+moviepy==1.0.3
+os-sys==2.1.4
+requires.io==0.2.6
+pytest-shutil==1.7.0
+pybase64==1.1.4
+python-time==0.3.0
+Pillow==2.2.2
+Wave==0.0.2
+python-math==0.0.1
+contextlib2
+subprocess.run==0.0.8
+pytest-timeit==0.3.0
+Arrays==0.0.5
