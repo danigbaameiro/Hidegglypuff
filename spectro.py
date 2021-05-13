@@ -29,19 +29,20 @@ def video_stego():
     os.remove(wav_filename)
     
 def video_stego_extraction():
-    print("Please remember that the video should be in AVI format and the output file will be in WAV format")
-    videoPath = input("Please insert the path of the video: ")
+    print("\t*Please remember that the video should be in AVI format and the output file will be in WAV format")
+    videoPath = input("\u001b[33m[!]\u001b[0m Please insert the path of the video: ")
     command = "ffmpeg -i "+ videoPath +" -ab 160k -ac 2 -ar 44100 -vn audio.wav"
     subprocess.call(command, shell=True)
-    print("Succesfully extracted audio file")
+    print("\n\u001b[34m[*]\u001b[0m Succesfully extracted audio file")
 
 def retrieve_message():
-    print("Please insert the encrypted text")
+    print("\n\u001b[33m[!]\u001b[0m Please insert the encrypted text: ", end='')
     encMessage = input()
-    print("Please insert the key")
+    print("\u001b[33m[!]\u001b[0m Please insert the key: ", end='')
     key = input()
     message = decrypt(encMessage.encode(), key)
-    print("Message is: "+ message)
+    print("\n\u001b[34m[*]\u001b[0m Succesfully extracted audio file")
+    print("\u001b[32m[*]\u001b[0m The hidden text is: "+ message)
     
 
 def audio_stego():
@@ -58,11 +59,11 @@ def audio_stego():
 
     
     #User input the secret and password
-    print("Tell me your secret:")
+    print("\n\u001b[33m[!]\u001b[0m Tell me your secret: ", end='')
     secret = input()
     key = Fernet.generate_key()
-    print("The key is: \n"+key.decode("utf-8"))
-    print("Please share it with the receiver")
+    print("\n\u001b[36m[*]\u001b[0m The key is: "+key.decode("utf-8"))
+    print("\t*Please share it with the receiver")
 
     #encrypted message generated
     encMessage = encrypt (secret, key)
@@ -129,8 +130,8 @@ def audio_stego():
 
     tms = timeit.default_timer()
 
-    print("Conversion progress: 100%")
-    print("Success. Completed in %d seconds." % int(tms-tm))
+    print("\u001b[33m[!]\u001b[0m Conversion progress: 100%")
+    print("\u001b[34m[*]\u001b[0m Success. Completed in %d seconds." % int(tms-tm))
 
     #Remove image with secret
     os.remove(bmp_filename)
@@ -154,8 +155,8 @@ def encrypt (message, key):
     # be encoded to byte string before encryption
     encMessage = fernet.encrypt(message.encode())
       
-    print("original string: ", message)
-    print("encrypted string: ", encMessage.decode("utf-8"))
+    print("\n\u001b[34m[*]\u001b[0m Original string: ", message)
+    print("\u001b[34m[*]\u001b[0m Encrypted string: ", encMessage.decode("utf-8"))
     return encMessage
 
 def decrypt (encMessage, key):
@@ -169,7 +170,7 @@ def decrypt (encMessage, key):
     # so decode it to string with decode methos
     decMessage = fernet.decrypt(encMessage).decode()
       
-    print("decrypted string: ", decMessage)
+    #print("decrypted string: ", decMessage)
     return decMessage
 
 

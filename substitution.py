@@ -16,21 +16,20 @@ def lsb_encrypt(encrypt=None):
     #print("You can write "+ {len(frame_bytes)/8} +" of bits")
 
     # The "secret" text message
-    print("Tell me your secret:")
+    print("\n\u001b[33m[!]\u001b[0m Tell me your secret: ", end='')
     secret = input()
     encr_message = secret
     if encrypt == 1:
         #Generate the key(32 bytes url-safe encoded)
         key = Fernet.generate_key()
-        print("The key is: \n"+str(key.decode("utf-8")))
-        print("Please share it with the receiver")
+        print("\n\u001b[36m[*]\u001b[0m The key is: "+str(key.decode("utf-8")))
+        print("\t*Please share it with the receiver")
         
         #Create Fernet instance
         fernet = Fernet(key)
         #Encrypt the message
         encr_message = fernet.encrypt(secret.encode())
         encr_message = encr_message.decode("utf-8")
-        print(encr_message)
     # Append dummy data to fill out rest of the bytes. Receiver shall detect and remove these characters.
     string = encr_message + int((len(frame_bytes)-(len(encr_message)*8*8))/8) *'$'
     # Convert text to bit array
@@ -47,6 +46,8 @@ def lsb_encrypt(encrypt=None):
     fd.writeframes(frame_modified)
     fd.close()
     song.close()
+
+    print("\u001b[32m[*]\u001b[0m Done!")
 
 def lsb_decrypt(encrypt=None):
     # Check path
@@ -70,13 +71,15 @@ def lsb_decrypt(encrypt=None):
 
     if encrypt == 1:
         #The message is decrypted using the same key
-        print("Please insert the key")
+        print("\n\u001b[33m[!]\u001b[0m Please insert the key: ", end='')
         key = input()
         fernet = Fernet(key)
         result = fernet.decrypt(decoded)
 
     # Print the extracted text
-    print("Sucessfully decoded: "+result.decode("utf-8")+"\n\n")
+    print("\n\u001b[34m[*]\u001b[0m Succesfully extracted audio file")
+    print("\u001b[32m[*]\u001b[0m The hidden text is: "+ result.decode("utf-8"))
+
     song.close()
 
 def options():

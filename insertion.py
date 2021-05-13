@@ -18,7 +18,7 @@ def insert_encryptb64():
     song_open = open(edit_song_name, 'a')
     
     #User input the secret
-    print("Tell me your secret:")
+    print("\n\u001b[33m[!]\u001b[0m Tell me your secret: ", end='')
     secret = input()
     encoded = base64.b64encode(secret.encode())
 
@@ -27,8 +27,8 @@ def insert_encryptb64():
 
     #Write the message at the end of the file
     song_open.write(detect_final + encoded.decode("utf-8"))
-    print("Original string: ", secret)
-    print("Encoded string: "+encoded.decode("utf-8")+"\n\n")
+    print("\n\u001b[34m[*]\u001b[0m Original string: ", secret)
+    print("\u001b[34m[*]\u001b[0m Encoded string: "+encoded.decode("utf-8")+"\n")
     song_open.close()
 
 #Read the message from the .wav file  
@@ -61,8 +61,8 @@ def insert_decryptb64():
 
     #The message is decoded
     decoded = base64.b64decode(msg)
-    print("Succesfully extracted audio file")
-    print("The hidden text is: "+str(decoded.decode("utf-8"))+"\n\n")
+    print("\n\u001b[34m[*]\u001b[0m Succesfully extracted audio file")
+    print("\u001b[32m[*]\u001b[0m The hidden text is: "+str(decoded.decode("utf-8"))+"\n")
 
 
 
@@ -70,7 +70,6 @@ def insert_decryptb64():
 def encrypt (message, key):
 
     # Instance the Fernet class with the key
-  
     fernet = Fernet(key)  
 
     # then use the Fernet class instance 
@@ -92,7 +91,7 @@ def decrypt (encMessage, key):
     # so decode it to string with decode methos
     decMessage = fernet.decrypt(encMessage).decode()
       
-    print("decrypted string: ", decMessage)
+    #print("decrypted string: ", decMessage)
     return decMessage
 
 def insert_encryptfernet():
@@ -107,23 +106,23 @@ def insert_encryptfernet():
     song_open = open(edit_song_name, 'a')
     
     #User input the secret and password
-    print("Tell me your secret:")
+    print("\n\u001b[33m[!]\u001b[0m Tell me your secret: ", end='')
     secret = input()
     key = Fernet.generate_key()
-    print("The key is: \n"+str(key.decode("utf-8") ))
-    print("Please share it with the receiver")
+    print("\n\u001b[36m[*]\u001b[0m The key is: "+str(key.decode("utf-8")))
+    print("\t*Please share it with the receiver")
 
     #encrypted message generated
     encMessage = encrypt (secret, key)
-    print(len(encMessage))
+
     #This will be the characters used to detect the secret later
     detect_final="$$$"
 
     #Write the message at the end of the file
     song_open.write(detect_final + encMessage.decode("utf-8"))
 
-    print("Original string: "+secret)
-    print("Encoded string: "+encMessage.decode("utf-8")+"\n\n")
+    print("\n\u001b[34m[*]\u001b[0m Original string: "+secret)
+    print("\u001b[34m[*]\u001b[0m Encoded string: "+encMessage.decode("utf-8")+"\n")
     song_open.close()
 
 def insert_decryptfernet():
@@ -153,11 +152,11 @@ def insert_decryptfernet():
     msg_list.reverse() #The correct message is composed reversing it again
     encMessage = str("".join(msg_list))
     
-    print("Please insert the key")
+    print("\n\u001b[33m[!]\u001b[0m Please insert the key: ", end='')
     key = input()
     message = decrypt(encMessage.encode(), key)
-    print("Succesfully extracted audio file")
-    print("Message is: "+ message)
+    print("\n\u001b[34m[*]\u001b[0m Succesfully extracted audio file")
+    print("\u001b[32m[*]\u001b[0m The hidden text is: "+ message)
 
 
 def options():
