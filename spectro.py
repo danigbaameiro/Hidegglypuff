@@ -124,7 +124,7 @@ def audio_stego():
         sys.stdout.write("Conversion progress: %d%%   \r" % (float(x) / imagen.size[0]*100) )
         sys.stdout.flush()
 
-    output.writeframes(data.tostring())
+    output.writeframes(data.tobytes())
     output.close()
 
     tms = timeit.default_timer()
@@ -200,7 +200,7 @@ def options():
             else:
                 video_stego_extraction()
         elif option == "d":
-            if g.g.filename_wav == "":
+            if g.filename_wav == "":
                 print("\u001b[31m[!]\u001b[0m This option is only for music files")
             else:
                 retrieve_message()
