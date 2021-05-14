@@ -31,7 +31,7 @@ Finally, the audio steganography techniques used in our tool are the follownig:
   - [ ] Echo Hiding
   - [ ] Phase Coding
   - [ ] Parity Coding
-  - [ ] Spread Spectrum
+  - [x] Spread Spectrum
   - [ ] Tone insertion
   - [x] LSB (Least Significant Bit)
 

@@ -1,6 +1,7 @@
 import wave
 import os
 import shutil
+import global_variables as g
 from cryptography.fernet import Fernet
 
 def lsb_encrypt(encrypt=None):
@@ -95,13 +96,25 @@ def options():
         option = input("Please select an option: ")
 
         if option == "a":
-            lsb_encrypt()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                lsb_encrypt()
         elif option == "b":
-            lsb_encrypt(1)
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                lsb_encrypt(1)
         elif option == "c":
-            lsb_decrypt()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                lsb_decrypt()
         elif option == "d":
-            lsb_decrypt(1)
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                lsb_decrypt(1)
         elif option == "e":
             break
         else:

@@ -2,6 +2,7 @@ import base64
 import shutil
 import os
 import io
+import global_variables as g
 from cryptography.fernet import Fernet
 
 
@@ -172,13 +173,25 @@ def options():
         option = input("Please select an option: ")
       
         if option == "a":
-            insert_encryptb64()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files")
+            else:
+                insert_encryptb64()
         elif option == "b":
-            insert_encryptfernet()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                insert_encryptfernet()
         elif option == "c":
-            insert_decryptb64()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                insert_decryptb64()
         elif option == "d":
-            insert_decryptfernet()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files!")
+            else:
+                insert_decryptfernet()
         elif option == "e":
             break
         else:

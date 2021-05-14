@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 from cryptography.fernet import Fernet
 import wave, math, array, sys, timeit, os, subprocess, contextlib
 import moviepy.editor as mpe
-
+import global_variables as g
 
 #Function to retrieve duration of the audio
 #Based on the piece of code available at: https://stackoverflow.com/questions/7833807/get-wav-file-length-or-duration
@@ -186,13 +186,25 @@ def options():
         option = input("Please select an option: ")
 
         if option == "a":
-            audio_stego()
+            if g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files")
+            else:
+                audio_stego()
         elif option == "b":
-            video_stego()
+            if g.filename_mp4 == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for video files")
+            else:
+                video_stego()
         elif option == "c":
-            video_stego_extraction()
+            if g.filename_mp4 == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for video files")
+            else:
+                video_stego_extraction()
         elif option == "d":
-            retrieve_message()
+            if g.g.filename_wav == "":
+                print("\u001b[31m[!]\u001b[0m This option is only for music files")
+            else:
+                retrieve_message()
         elif option == "e":
             break
         else:
