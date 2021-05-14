@@ -159,3 +159,10 @@ def print_file():
         print("\u001b[34m[*]\u001b[0m You have selected the video: \u001b[33m"+g.filename_mp4+"\u001b[0m")
     if g.filename_wav != "":
         print("\u001b[34m[*]\u001b[0m You have selected the song: \u001b[33m"+g.filename_wav+"\u001b[0m")
+    
+def create_folders():
+    folders = ["tmp", "resources", "media"] 
+
+    for name_folder in folders:
+        if not os.path.exists(name_folder):
+            os.mkdir("./"+name_folder)
