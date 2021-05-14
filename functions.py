@@ -4,6 +4,14 @@ import insertion as ins
 import spectro as spec
 import os
 import time
+import signal
+
+# Capture "Ctrl+C" to prevent it from displaying faults
+def signal_handler(sig, frame):
+    print("\n\nGoodbye :)")
+    exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
 
 def animation():
     print('''\u001b[35m
