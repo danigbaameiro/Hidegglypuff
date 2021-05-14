@@ -1,5 +1,6 @@
 cryptography==3.4.7
 moviepy==1.0.3
+ffmpeg-python==0.2.0
 os-sys==2.1.4
 requires.io==0.2.6
 pytest-shutil==1.7.0
