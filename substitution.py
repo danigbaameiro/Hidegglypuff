@@ -7,8 +7,8 @@ from cryptography.fernet import Fernet
 def lsb_encrypt(encrypt=None):
     # Check path
     dirname = os.getcwd()
-    original_song_name = dirname + "/resources/" + "The Local Guy - Jump By Van Halen.wav"
-    edit_song_name = dirname + "/media/" + "The Local Guy - Jump By Van Halen (stego).wav"
+    original_song_name = dirname + "/resources/" + g.filename_wav
+    edit_song_name = dirname + "/media/" + g.filename_wav
     # read wave audio file
     song = wave.open(original_song_name, mode='rb')
 
@@ -53,7 +53,7 @@ def lsb_encrypt(encrypt=None):
 def lsb_decrypt(encrypt=None):
     # Check path
     dirname = os.getcwd()
-    song_name = dirname + "/media/" + "The Local Guy - Jump By Van Halen (stego).wav"
+    song_name = dirname + "/media/" + g.filename_wav
 
     song = wave.open(song_name, mode='rb')
     # Convert audio to byte array

@@ -18,9 +18,9 @@ def lenghtAudio(fname):
 def video_stego():
     audio_stego()
     dirname = os.getcwd()
-    gif_filename = dirname + "/resources/antena.mp4"
-    wav_filename = dirname + "/out.wav"
-    avi_filename = dirname + "/antena.avi"
+    gif_filename = dirname + "/resources/"+g.filename_mp4
+    wav_filename = dirname + "/media/out.wav"
+    avi_filename = dirname + "/media/antena.avi"
     
     my_clip = mpe.VideoFileClip(gif_filename)
     my_clip.set_duration(lenghtAudio(wav_filename)).write_videofile(avi_filename, fps=25, audio=wav_filename, codec="rawvideo")
@@ -53,7 +53,7 @@ def audio_stego():
     maxfreq = 20000
     wavrate = 44100
     pxs     = 30
-    output  = dirname+"media"+"out.wav"
+    output  = dirname+"/media/"+"out.wav"
     rotate  = False
     invert  = False
 
@@ -75,7 +75,6 @@ def audio_stego():
 
     #Use Arial font with letter size of 11
     font_path = dirname+"/fonts/arial.ttf"
-    print(font_path)
     fnt = ImageFont.truetype(font_path, 11)
 
     #Drawing the secret into the image

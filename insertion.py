@@ -10,8 +10,8 @@ from cryptography.fernet import Fernet
 def insert_encryptb64():
     # Check path
     dirname = os.getcwd()
-    original_song_name = dirname + "/resources/" + "The Local Guy - Jump By Van Halen.wav"
-    edit_song_name = dirname + "/media/" + "The Local Guy - Jump By Van Halen (stego).wav"
+    original_song_name = dirname + "/resources/" + g.filename_wav
+    edit_song_name = dirname + "/media/" + g.filename_wav
 
     shutil.copy(original_song_name, edit_song_name)
 
@@ -36,7 +36,7 @@ def insert_encryptb64():
 def insert_decryptb64():
     # Check path
     dirname = os.getcwd()
-    song_name = dirname + "/media/" + "The Local Guy - Jump By Van Halen (stego).wav"
+    song_name = dirname + "/media/" + g.filename_wav
 
     #Open the file and read all the lines
     song_open = io.open(song_name,'r', encoding="cp437").readlines()
@@ -98,8 +98,8 @@ def decrypt (encMessage, key):
 def insert_encryptfernet():
     # Check path
     dirname = os.getcwd()
-    original_song_name = dirname + "/resources/" + "The Local Guy - Jump By Van Halen.wav"
-    edit_song_name = dirname + "/media/" + "The Local Guy - Jump By Van Halen (stego).wav"
+    original_song_name = dirname + "/resources/" + g.filename_wav
+    edit_song_name = dirname + "/media/" + g.filename_wav
 
     shutil.copy(original_song_name, edit_song_name)
 
@@ -129,7 +129,7 @@ def insert_encryptfernet():
 def insert_decryptfernet():
     # Check path
     dirname = os.getcwd()
-    song_name = dirname + "/media/" + "The Local Guy - Jump By Van Halen (stego).wav"
+    song_name = dirname + "/media/" + g.filename_wav
 
     #Open the file and read all the lines
     song_open = io.open(song_name,'r', encoding="cp437").readlines()
