@@ -85,6 +85,7 @@ It is important to note that the `Spread Spectrum` method implements both audio 
 </div>
 
 ## Errors
+### First posible error
 If you have a file that is not a ".wav" file, you can convert it using the following command:
 ```sh
 ffmpeg -i <non_wav_filename> <wav_filename> <wav_filename>
@@ -93,6 +94,18 @@ ffmpeg -i <non_wav_filename> <wav_filename> <wav_filename>
 As shown below:
 ```sh
 ffmpeg -i The-Afterparty.mp3 The-Afterparty.wav
+```
+
+### Second posible error
+If you are using python version 3.0 or lower, modify the following line in the `spectro.py` file:
+
+```sh
+output.writeframes(data.tostring())
+```
+
+To the following line:
+```sh
+output.writeframes(data.tobytes())
 ```
 
 ## Authors
