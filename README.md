@@ -107,6 +107,9 @@ To the following line:
 output.writeframes(data.tobytes())
 ```
 
+## Many thanks to
+We would like to thank Professor Chema, who teaches the subject "Persistent Threats and Information Leakage" at the Universidad Carlos III de Madrid, for motivating this tool.
+
 ## Authors
 * [Sawyer13](https://github.com/Sawyer13/)
 * [Montsedom96](https://github.com/Montsedom96/)
