@@ -20,10 +20,9 @@ You must have installed python 3 and the following packages.
 ## Features
 Now, this tool only accept the following audio files:
   - [x] WAV
-  - [ ] MP3
 
 Also, this tool use the following methods to hide information:
-  - [ ] Insertion-Based
+  - [x] Insertion-Based
   - [x] Substitution-Based
   - [ ] Generation-Based
 
