@@ -15,7 +15,7 @@
 </p>
 
 ## Prerequisites
-You must have installed python 3 and the following packages.
+You must have installed [python 3](https://www.python.org/downloads/). The tool should work for Windows, GNU/Linux and Mac.
 
 ## Features
 Now, this tool only accept the following audio files:
